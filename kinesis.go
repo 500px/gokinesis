@@ -22,6 +22,7 @@
  * SOFTWARE.
  *
  */
+
 package gokinesis
 
 import (
