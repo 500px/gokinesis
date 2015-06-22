@@ -22,7 +22,7 @@
  * SOFTWARE.
  *
  */
-package kinesis
+package gokinesis
 
 import (
 	"bufio"
