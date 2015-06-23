@@ -1,3 +1,7 @@
+500px Changeset
+=========
+39f7942: removed "examples" and restructured source directory to work with Goop.
+
 gokinesis
 =========
 A Golang client library for AWS Kinesis.
