@@ -132,6 +132,7 @@ func (cp *Checkpointer) CheckpointAllV2() error {
 func (cp *Checkpointer) CheckpointSeqV2(seqNum string) error {
 	msg := fmt.Sprintf("\n{\"action\": \"checkpoint\", \"sequenceNumber\": \"%s\", \"subSequenceNumber\": null}\n", seqNum)
 	return cp.doCheckpoint(msg)
+}
 
 func (cp *Checkpointer) doCheckpoint(msg string) error {
 	if !cp.isAllowed {
