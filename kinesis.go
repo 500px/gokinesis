@@ -122,6 +122,18 @@ func (cp *Checkpointer) CheckpointSeq(seqNum string) error {
 	return cp.doCheckpoint(msg)
 }
 
+// CheckpointAll marks all consumed messages as processed.
+func (cp *Checkpointer) CheckpointAllV2() error {
+	msg := "\n{\"action\": \"checkpoint\", \"sequenceNumber\": null, \"subSequenceNumber\": null}\n"
+	return cp.doCheckpoint(msg)
+}
+
+// CheckpointSeq marks messages up to sequence number as processed.
+func (cp *Checkpointer) CheckpointSeqV2(seqNum string) error {
+	msg := fmt.Sprintf("\n{\"action\": \"checkpoint\", \"sequenceNumber\": \"%s\", \"subSequenceNumber\": null}\n", seqNum)
+	return cp.doCheckpoint(msg)
+}
+
 func (cp *Checkpointer) doCheckpoint(msg string) error {
 	if !cp.isAllowed {
 		panic("attempted to checkpoint on ZOMBIE termination")
